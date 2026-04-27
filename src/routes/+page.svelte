@@ -4,10 +4,8 @@
   import MapLayer from '$lib/components/Maps/MapLayer.svelte';
   import Geocoder from '$lib/components/Maps/Geocoder.svelte';
 
-
   let { data } = $props();
   const litterBaskets = data.litterBaskets;
-  console.log(litterBaskets);
   let longitude = $state(-74.0);
   let latitude = $state(40.7);
   let zoom = $state(9.5);
@@ -21,11 +19,13 @@
   />
 
   <p>
-   TK.
+    Explore litter basket locations across New York City and search for your
+    neighborhood.
   </p>
 
-   <p>
-   TK
+  <p>
+    Use the search bar to jump to an address, then click points on the map for
+    details.
   </p>
 
   <Geocoder
@@ -44,10 +44,8 @@
     {zoom}
     height={600}
     theme="positron"
-    credit="TK"
-    <!-- the MapLayer you added earlier stays as-is -->
-
-  />
+    credit="OpenFreeMap / OpenStreetMap contributors"
+  >
     <MapLayer
       id="litter-baskets"
       type="circle"
@@ -60,9 +58,9 @@
         'circle-opacity': 0.9,
       }}
       popup={(feature) => {
-      const p = feature.properties;
-      return `<strong>${p.species}</strong><br>${p.description}`;
-    }}
+        const p = feature.properties;
+        return `<strong>${p.baskettype ?? 'Litter Basket'}</strong><br>${p.location_description ?? 'No location description available.'}`;
+      }}
     />
   </Map>
 </div>
