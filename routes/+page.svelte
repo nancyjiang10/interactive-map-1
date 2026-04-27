@@ -21,11 +21,13 @@
   />
 
   <p>
-   TK.
+    Explore litter basket locations across New York City and search for your
+    neighborhood.
   </p>
 
    <p>
-   TK
+    Use the search bar to jump to an address, then click points on the map for
+    details.
   </p>
 
   <Geocoder
@@ -44,7 +46,7 @@
     {zoom}
     height={600}
     theme="positron"
-    credit="TK"
+    credit="NYC OpenData / OpenStreetMap contributors"
     <!-- the MapLayer you added earlier stays as-is -->
 
   />
